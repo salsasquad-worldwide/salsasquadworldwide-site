@@ -362,7 +362,7 @@ select.chip{appearance:auto}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>// Shared data for the Salsa Squad map + calendar. Times are Eastern.
 // src: "chat" = address posted in the WhatsApp group; "site" = organizer website; "lookup" = OpenStreetMap; "check" = not confirmed.
-const AREAS = ["Kendall & South","Doral & West","Central Miami","North Miami & Aventura","Broward"];
+const AREAS = ["Kendall & South","Doral & West","Central Miami","Miami Beach","North Miami & Aventura","Broward"];
 const VENUES = {
   // Dance schools & studios
   salsadrian:{name:"SalsAdrian",type:"school",area:"Kendall & South",addr:"Near SW 40th St & SW 127th Ave, Miami",lat:25.7308,lon:-80.3996,src:"check",ig:"salsadrian.miami",
@@ -409,11 +409,23 @@ const VENUES = {
     about:"Courtyard venue at Aventura Mall. All ages."},
   getrefreshed:{name:"Get Refreshed Rooftop",type:"event",area:"Central Miami",addr:"2455 SW 27th Ave, Miami, FL 33145",lat:25.7458,lon:-80.2378,src:"site",ig:"miamisalsaevents",
     about:"Med-spa rooftop hosting a salsa and wellness night."},
+  bandshell:{name:"Miami Beach Bandshell",type:"event",area:"Miami Beach",addr:"7275 Collins Ave, Miami Beach, FL 33141",lat:25.8607,lon:-80.1207,src:"site",seen:"2026-11-19",ig:"miamibeachbandshell",
+    about:"Open-air North Beach venue with free Miami Beach ¡Baila! salsa, bachata and merengue socials and ticketed Latin concerts. Schedule: miamibeachbandshell.com/events."},
   interconti:{name:"InterContinental Miami",type:"event",area:"Central Miami",addr:"100 Chopin Plaza, Miami, FL 33131",lat:25.7724,lon:-80.1855,src:"chat",
     about:"Downtown hotel with Salsa Nights by Salsa Lovers (live bands, lessons) a few times a year, and the Miami Salsa Congress every June. Details: icmiamihotel.com/salsa-nights."}
 };
 
 const EVENTS = [
+  {id:"bs1120",title:"Madre Cumbia",start:"2026-11-20T20:00",venue:"bandshell",tag:"Live band",
+   details:"Colombian cumbia concert presented with LPR. Ticketed; price and end time not posted. Tickets at miamibeachbandshell.com."},
+  {id:"bs1121",title:"Buena Vista Orchestra",start:"2026-11-21T20:00",venue:"bandshell",tag:"Live band",
+   details:"Afro-Cuban son from the Buena Vista Social Club tradition. Ticketed; price and end time not posted. Tickets at miamibeachbandshell.com."},
+  {id:"bs1122",title:"Miami Beach ¡Baila!",start:"2026-11-22T18:00",end:"2026-11-22T22:00",venue:"bandshell",tag:"Social",
+   details:"Free (RSVP; doesn’t guarantee entry, arrive early). Doors 6 PM, beginner lesson 7–7:30, salsa, bachata and merengue social 7:30–10 PM. All ages."},
+  {id:"bs1128",title:"Grupo Duelo",start:"2026-11-28T20:00",venue:"bandshell",tag:"Live band",
+   details:"Norteño concert. Ticketed; price and end time not posted. Tickets at miamibeachbandshell.com."},
+  {id:"bs0403",title:"Calema",start:"2027-04-03T20:00",venue:"bandshell",tag:"Live band",
+   details:"Lusophone band mixing African rhythms, pop and Latin sounds, presented by LPR. Ticketed; price and end time not posted."},
   {id:"icsalsa",title:"Salsa Night by Salsa Lovers",start:"2026-11-13T21:00",end:"2026-11-14T02:00",venue:"interconti",tag:"Live band",
    details:"Live music by Luis Jibarito and La Crema, DJ Ivan G, salsa lessons included. $15, ladies free before 10 PM. 21+. Valet $12."},
   {id:"flavor1114",title:"Flavor Factory Social",start:"2026-11-14",allDay:true,venue:"flavor",tag:"Social",
