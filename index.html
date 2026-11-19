@@ -383,11 +383,11 @@ const VENUES = {
   casarubia:{name:"Casa La Rubia Wynwood",type:"night",area:"Central Miami",addr:"55 NW 25th St, Miami, FL 33127",lat:25.8011,lon:-80.1962,src:"site",ig:"miamisalsascene",
     about:"Bailamos Fridays with a free salsa class at 9. Free cover."},
   vivo:{name:"Vivo Plaza, Dolphin Mall",type:"night",area:"Doral & West",addr:"11401 NW 12th St R101, Miami, FL 33172",lat:25.7877,lon:-80.3803,src:"chat",ig:"miamisalsascene",
-    about:"Big Saturday salsa nights on many weekends, class by Dame Salsa at 9. Also hosts El Mundial in December."},
+    about:"Big Saturday salsa nights on many weekends, class by Dame Salsa at 9. Also hosts El Mundial in December.",note:"On Nov 13 the party moved indoors to PBR at the last minute, so check Miami Salsa Scene’s posts on the day."},
   terraza:{name:"La Terraza de Doral",type:"night",area:"Doral & West",addr:"11402 NW 41st St, Doral, FL 33178",lat:25.8108,lon:-80.3827,src:"chat",
     about:"La Vuelta del Martes: bachata-heavy Tuesday nights by Randy Santos, held some weeks."},
   elmani:{name:"El Maní Salsa",type:"night",area:"Doral & West",addr:"1200 NW 78th Ave, Miami, FL",lat:25.7835,lon:-80.3231,src:"chat",ig:"elmanisalsa",
-    about:"Live salsa some Thursdays with The Latin Band (Manolo’s group). Doors at 8, band around 10:30. Free entry."},
+    about:"Live salsa some Thursdays with The Latin Band (Manolo’s group). Doors at 8, band around 10:30. Free entry.",note:"Rumbón Latin Party ended its Sunday Domingazo here on Nov 15, citing changes at El Maní. Confirm Thursdays before going."},
   buenos:{name:"Buenos Muchachos",type:"night",area:"Central Miami",addr:"1225 SW 8th St, Miami, FL 33135",lat:25.7659,lon:-80.2148,src:"chat",
     about:"Domingo Tempranito, an early Sunday social by Randy Santos about once a month. $10 with a welcome cocktail."},
   ballchain:{name:"Ball & Chain",type:"night",area:"Central Miami",addr:"1513 SW 8th St, Miami, FL 33135",lat:25.7658,lon:-80.2198,src:"lookup",
@@ -450,6 +450,10 @@ const WEEKLY = [
 
 // Schools/teachers from the chat with no confirmed location yet
 const UNMAPPED_SCHOOLS = [
+  {name:"Rumbón Latin Party",about:"Ran the Sunday Domingazo at El Maní for two years; it ended Nov 15. They say a new Sunday home is coming soon."},
+  {name:"Salsa Ninja Dance Social",about:"Broward salsa social recommended by DJ Mike Calderon (venue not posted in the chat)."},
+  {name:"Salsa In Miami",about:"Miami salsa socials, like the Friendsgiving Edition on Nov 13 (venue not posted in the chat)."},
+  {name:"Salsa Onyx",about:"Themed salsa parties with DJ Charun, like the Safari Party on Nov 13 (venue not posted in the chat)."},
   {name:"Salsa Fina",about:"Teaches the Sunday class at La Mesa Kendall; private lessons."},
   {name:"Salsa Kings",about:"Team “The Collective”, created by Mel In Motion and Andres Fernandez."},
   {name:"Randy Santos Dance Studio",about:"Hosts Tucandela Thursdays, La Vuelta del Martes and Domingo Tempranito; teaches bachata at Copper Blues."},
@@ -545,6 +549,8 @@ const DATA={miami:{AREAS,VENUES,EVENTS,WEEKLY,UNMAPPED_SCHOOLS,DJS}};
 // Miami: when each listing was last seen in the Salsa Squad chat
 for(const v of Object.values(DATA.miami.VENUES))v.seen=v.seen||"2026-11-12";
 Object.assign(DATA.miami.VENUES.sandbar,{seen:"2026-07"});Object.assign(DATA.miami.VENUES.flavor,{seen:"2026-11-13"});Object.assign(DATA.miami.VENUES.interconti,{seen:"2026-11-13"});Object.assign(DATA.miami.VENUES.blackbox,{seen:"2026-09"});
+// From the Nov 12–18 chat export
+Object.assign(DATA.miami.VENUES.copper,{seen:"2026-11-12"});Object.assign(DATA.miami.VENUES.dania,{seen:"2026-11-12"});Object.assign(DATA.miami.VENUES.tucandela,{seen:"2026-11-12"});Object.assign(DATA.miami.VENUES.salsadrian,{seen:"2026-11-13"});Object.assign(DATA.miami.VENUES.vivo,{seen:"2026-11-13"});Object.assign(DATA.miami.VENUES.cam,{seen:"2026-11-14"});Object.assign(DATA.miami.VENUES.lamesa,{seen:"2026-11-15"});
 // New York data. Researched Nov 13, 2026 from public listings and venue/organizer websites.
 // src: "site" = confirmed on the venue's or organizer's own website; "check" = public listings only, not yet confirmed.
 // seen: date the listing was last seen or confirmed. Pins are placed from street addresses and may be off by a block.
