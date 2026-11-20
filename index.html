@@ -210,11 +210,10 @@ select.chip{appearance:auto}
 @media (min-width:1100px){
 body.split .wrap{max-width:1440px}
 body.split #a-live{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:24px;align-items:start}
-body.split #a-live .tabs{display:none}
+body.split #a-live .tabs{grid-column:1/-1;margin-bottom:-10px;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:24px}
 body.split #v-cal,body.split #v-map{display:block!important;margin-top:14px}
 body.split #a-live>.foot{grid-column:1/-1}
 body.split #map{height:min(78vh,820px)}
-body.split .splitnote{display:block}
 }
 .splitnote{display:none;grid-column:1/-1;margin:14px 0 0;color:var(--muted);font-size:14px}
 </style>
@@ -314,7 +313,6 @@ body.split .splitnote{display:block}
     </div>
 
     <div id="a-live" hidden>
-      <p class="splitnote">Calendar on the left, map on the right. Click a dot or a “Map &amp; directions” link for details.</p>
       <nav class="tabs" aria-label="View">
         <a class="tab" id="t-cal" href="#">Calendar</a>
         <a class="tab" id="t-map" href="#">Map</a>
@@ -1320,7 +1318,7 @@ function split(){return WIDE.matches&&R&&R.live&&!$("p-area").hidden}
 function applySplit(){document.body.classList.toggle("split",!!split());if(split()){initMap();if(map){map.invalidateSize();if(!mapFitted){mapFitted=true;render()}}}}
 WIDE.addEventListener("change",()=>{applySplit();if(!WIDE.matches&&R&&R.live)showTab(location.hash.endsWith("-map")?"map":"cal")});
 function showTab(v){
-  if(WIDE.matches&&R&&R.live){$("v-cal").hidden=false;$("v-map").hidden=false;applySplit();return}
+  if(WIDE.matches&&R&&R.live){$("t-cal").setAttribute("aria-current",v==="cal"?"page":"false");$("t-map").setAttribute("aria-current",v==="map"?"page":"false");$("v-cal").hidden=false;$("v-map").hidden=false;applySplit();return}
   $("t-cal").setAttribute("aria-current",v==="cal"?"page":"false");$("t-map").setAttribute("aria-current",v==="map"?"page":"false");
   $("v-cal").hidden=v!=="cal";$("v-map").hidden=v!=="map";
   if(v==="map"){initMap();if(map){map.invalidateSize();if(!mapFitted){mapFitted=true;render()}}}else closeSheet();
